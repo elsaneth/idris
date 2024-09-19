@@ -3,7 +3,6 @@ import Data.List
 import Data.SnocList
 import Data.String
 import Data.Nat
-
 {-
 Funktsioon fst' - paari esimene element
 -}
@@ -106,26 +105,20 @@ Lisab tähe sõnesse. Kusjuures nulli või negatiivse indeksiga
 pannakse täht algusse, suurema indeksiga, kui sõne pikkus, lõppu.
 -}
 
--- castNonNegative : Int -> Nat
--- castNonNegative x = case x of
---     0 => 0
---     _ => Succ $ castNonNegative (x - 1)
-
--- cast : Int -> Nat
--- cast x = if x < 0 then 0 else castNonNegative x
-
-
--- lisa : Int -> Char -> String -> String
--- lisa i x ys = 
---     if i <= 0 
---         then pack([x] ++ unpack ys) 
---     else if i >= strLength ys
---         then pack(unpack ys ++ [x])
---     else
---         let (a, b) = splitAt (cast i) (unpack ys) in pack(a ++ [x] ++ b)
-        
-
+lisa : Integer -> Char -> String -> String
+lisa i x ys = 
+    let tahed = unpack ys in
+    let pikkus = length tahed in
+    if i <= 0 
+        then pack([x] ++ unpack ys) 
+    else if i >= fromInteger (natToInteger pikkus)
+        then pack(unpack ys ++ [x])
+    else 
+        let (a, b) = splitAt (fromInteger i) tahed in
+        pack (a ++ [x] ++ b)
 
 {-
 Väärtustab polünoomi kohal x. Iga listi element (a, n) tähistab polynoomi liidetavat a*x^n.
 -}
+
+
