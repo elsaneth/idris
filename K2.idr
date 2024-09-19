@@ -125,3 +125,7 @@ Väärtustab polünoomi kohal x. Iga listi element (a, n) tähistab polynoomi li
 
 arvuta : List (Double, Nat) -> Double -> Double
 arvuta ps x = sum (map (\(a, n) => a * (x ^ (n))) ps)
+
+{-
+proov
+-}
