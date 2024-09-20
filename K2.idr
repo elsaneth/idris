@@ -1,8 +1,5 @@
-module K2
+module Main
 import Data.List
-import Data.SnocList
-import Data.String
-import Data.Nat
 import Data.Monoid.Exponentiation
 
 {-
@@ -125,7 +122,3 @@ Väärtustab polünoomi kohal x. Iga listi element (a, n) tähistab polynoomi li
 
 arvuta : List (Double, Nat) -> Double -> Double
 arvuta ps x = sum (map (\(a, n) => a * (x ^ (n))) ps)
-
-{-
-proov
--}
