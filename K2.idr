@@ -1,8 +1,5 @@
-module K2
+module Main
 import Data.List
-import Data.SnocList
-import Data.String
-import Data.Nat
 import Data.Monoid.Exponentiation
 
 {-
